@@ -75,7 +75,7 @@ public class TokopediaScrapper {
         if(links.size()<MAX_ITEM)
         {
             for(int j=0;j<(MAX_ITEM-links.size());j++){
-                driver.get(getProductHRef(links.get(j).attr("href")));
+                driver.get(getProductHRef(links2.get(j).attr("href")));
                 js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
                 Thread.sleep(5000);
                 Document productDetail = Jsoup.parseBodyFragment(driver.getPageSource());
