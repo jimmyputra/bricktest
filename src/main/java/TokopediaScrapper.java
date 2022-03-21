@@ -52,8 +52,8 @@ public class TokopediaScrapper {
         Elements links = doc1.select("a[data-testid=lnkProductContainer]");
         Elements links2 = doc2.select("a[data-testid=lnkProductContainer]");
 
-        for (org.jsoup.nodes.Element link : links) {
-            driver.get(getProductHRef(link.attr("href")));
+        for (int i=0;i<MAX_ITEM;i++) {
+            driver.get(getProductHRef(links.get(i).attr("href")));
             js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
             Thread.sleep(5000);
             Document productDetail = Jsoup.parseBodyFragment(driver.getPageSource());
